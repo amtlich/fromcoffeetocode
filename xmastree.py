@@ -12,7 +12,8 @@ COLORS = {
 }
 
 # this section defines the tree pattern; Y, R, G, B mark ornament positions
-TREE_PATTERN = """Y
+TREE_PATTERN = """          
+                            R
                            YYY
                           *****
                          *R***G*
@@ -46,10 +47,10 @@ def init_tree(pattern: str):
     for i, ch in enumerate(tree_chars):
         if ch == "Y":
             yellow.append(i)
-            tree_chars[i] = "•"
+            tree_chars[i] = "*"
         elif ch == "R":
             red.append(i)
-            tree_chars[i] = "•"
+            tree_chars[i] = "*"
         elif ch == "G":
             green.append(i)
             tree_chars[i] = "•"
