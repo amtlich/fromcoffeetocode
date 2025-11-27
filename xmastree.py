@@ -31,12 +31,12 @@ TREE_PATTERN = """
              *******************************
             *********************************
            ***********************************
-                            ||
-                            ||
-                            ||
-                            ||
-                            ||
-                        \\========/
+                           ||
+                           ||
+                           ||
+                           ||
+                           ||
+                       \========/
 """
 
 # this section initializes the tree data and collects ornament positions by color
@@ -53,10 +53,10 @@ def init_tree(pattern: str):
             tree_chars[i] = "*"
         elif ch == "G":
             green.append(i)
-            tree_chars[i] = "•"
+            tree_chars[i] = "*"
         elif ch == "B":
             blue.append(i)
-            tree_chars[i] = "•"
+            tree_chars[i] = "*"
 
     return tree_chars, yellow, red, green, blue
 
@@ -76,9 +76,9 @@ def animate_twinkle(tree_chars, yellow, red, green, blue, frames=200, delay=0.08
             if random.random() < 0.6:
                 color_name = random.choice(list(COLORS.keys()))
                 color_code = COLORS[color_name]
-                frame[idx] = f"{color_code}•{RESET}"
+                frame[idx] = f"{color_code}*{RESET}"
             else:
-                frame[idx] = "•"
+                frame[idx] = "*"
 
         render_tree(frame)
         time.sleep(delay)
@@ -98,7 +98,7 @@ def animate_color_cycle(tree_chars, yellow, red, green, blue, cycles=20, delay=0
             frame = base[:]
             color_code = COLORS[color_name]
             for idx in positions:
-                frame[idx] = f"{color_code}•{RESET}"
+                frame[idx] = f"{color_code}*{RESET}"
             render_tree(frame)
             time.sleep(delay)
 
